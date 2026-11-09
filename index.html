@@ -49,7 +49,6 @@
       <div class="bokeh" aria-hidden="true"></div>
       <div class="hero-inner wrap">
         <div class="hero-copy">
-          <img class="hero-logo" src="assets/logo-white.png" alt="The Basque Bloc Cheesecakes" width="961" height="593">
           <h1 id="hero-title"><span class="title-kicker">A TASTE OF</span><span class="christmas">CHRISTMAS</span></h1>
           <p class="hero-tagline">Make the season delicious.</p>
           
@@ -171,7 +170,7 @@
           <h3>Make it your order</h3>
           <div class="helper-grid">
             <label for="helper-flavor">Flavor<select id="helper-flavor"><option value="Classic">Classic</option><option value="Blueberry">Blueberry</option><option value="Strawberry">Strawberry</option><option value="Mango">Mango</option><option value="Biscoff">Biscoff</option><option value="KitKat">KitKat</option><option value="Nutella">Nutella</option><option value="Salted Caramel">Salted Caramel</option></select></label>
-            <label for="helper-size">Size<select id="helper-size"><option value="6-inch">6-inch · 4–6 servings</option><option value="8-inch">8-inch · 8–12 servings</option></select></label>
+            <label for="helper-size">Size<select id="helper-size" aria-describedby="helper-servings"><option value="6-inch">6-inch</option><option value="8-inch">8-inch</option></select><span id="helper-servings" class="servings-note" aria-live="polite">Good for 4–6 servings</span></label>
             <div class="helper-quantity-field"><p id="quantity-label">Quantity</p><div class="quantity-stepper" role="group" aria-labelledby="quantity-label"><button type="button" id="quantity-minus" aria-label="Decrease quantity" disabled>−</button><output id="helper-quantity" aria-live="polite">1</output><button type="button" id="quantity-plus" aria-label="Increase quantity">+</button></div></div>
             <label for="helper-date">Pickup date <span class="optional">(optional)</span><input type="date" id="helper-date"></label>
           </div>
@@ -192,7 +191,7 @@
     <button class="dialog-close" type="button" aria-label="Close flavor details">×</button>
     <img id="flavor-dialog-image" alt="" width="480" height="290">
     <h2 id="flavor-dialog-title">Classic</h2><p class="flavor-dialog-note">Your favorite Basque cheesecake, made for sharing.</p>
-    <div class="flavor-selection"><label for="flavor-size">Size</label><select id="flavor-size"><option value="6-inch">6-inch · 4–6 servings</option><option value="8-inch">8-inch · 8–12 servings</option></select><p id="flavor-dialog-price">₱700</p></div>
+    <div class="flavor-selection"><label for="flavor-size">Size</label><select id="flavor-size" aria-describedby="flavor-servings"><option value="6-inch">6-inch</option><option value="8-inch">8-inch</option></select><p id="flavor-servings" class="servings-note" aria-live="polite">Good for 4–6 servings</p><p id="flavor-dialog-price">₱700</p></div>
     <div class="order-options"><a id="flavor-messenger" class="button button-gold messenger-link copy-order" href="https://m.me/BasqueBlocPH" target="_blank" rel="noopener noreferrer"><span>Order this flavor <span class="button-detail">via Messenger</span></span><span aria-hidden="true">↗</span></a></div>
   </dialog>
   <p class="toast" id="order-toast" role="status" aria-live="polite" hidden></p>

@@ -265,3 +265,27 @@ dialog .toast{position:fixed;inset:auto 16px 16px;width:auto;max-width:32rem;mar
 /* Copy confirmation stays clear of the send CTA and modal close control. */
 .toast{top:16px;bottom:auto;pointer-events:none}
 dialog .toast{top:16px;bottom:auto;left:16px;right:80px;max-width:32rem}
+/* Short native size labels keep controls readable at 150–200% text. */
+.servings-note{display:block;margin-top:.5rem;color:var(--muted);font-size:1rem;line-height:1.5;font-weight:400}
+.flavor-selection .servings-note{grid-column:1/-1;text-align:left;margin-top:0}
+.flavor-selection select{width:100%;min-width:0}
+@media(max-width:26rem){
+  .wrap{width:calc(100% - 32px)}
+  .order-helper,.price-card{padding:16px}
+  .hero .christmas{font-size:min(2rem,11vw)}
+  .sticky-order .button{white-space:normal}
+  .sticky-order .button>span[aria-hidden],.order-helper>.button>span[aria-hidden]{display:none}
+}
+/* 200% text must reflow the surrounding content as well as native controls. */
+.steps{grid-template-columns:repeat(3,minmax(0,1fr))}
+.steps li{min-width:0}
+.features{grid-template-columns:repeat(auto-fit,minmax(min(100%,max(8rem,calc((100% - 3.6rem)/4))),1fr))}
+.dialog-close{font-size:32px}
+@media(max-width:35.999rem){.steps{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:26rem){
+  .section-heading h2{font-size:min(1.65rem,10vw)}
+  .steps li{padding:16px}
+  .steps h3{font-size:min(1.8rem,11.1vw)}
+  .price-list>div{grid-template-columns:repeat(auto-fit,minmax(min(100%,8rem),1fr));gap:.5rem}
+  .price-list dd{justify-self:end}
+}

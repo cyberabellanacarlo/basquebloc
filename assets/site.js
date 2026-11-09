@@ -15,6 +15,7 @@ const prices={Classic:[700,1450],Blueberry:[850,1650],Strawberry:[850,1650],Mang
 let activeSize='6-inch',activeFlavor='Classic',quantity=1;
 const money=value=>'₱'+value.toLocaleString('en-PH');
 const priceFor=(flavor,size)=>prices[flavor][size==='8-inch'?1:0];
+const servingsFor=size=>size==='8-inch'?'Good for 8–12 servings':'Good for 4–6 servings';
 
 function setMenu(open,returnFocus=false){
   toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Close menu':'Open menu');nav.classList.toggle('is-open',open);if(returnFocus)toggle.focus();
@@ -83,6 +84,7 @@ document.querySelectorAll('[data-size]').forEach(button=>button.addEventListener
 
 const helperFlavor=document.querySelector('#helper-flavor'),helperSize=document.querySelector('#helper-size'),helperDate=document.querySelector('#helper-date');
 function updateHelper(){
+  document.querySelector('#helper-servings').textContent=servingsFor(helperSize.value);
   document.querySelector('#helper-quantity').value=quantity;
   document.querySelector('#quantity-minus').disabled=quantity<=1;document.querySelector('#quantity-plus').disabled=quantity>=5;
   document.querySelector('#helper-total').textContent=money(quantity*priceFor(helperFlavor.value,helperSize.value));
@@ -96,7 +98,7 @@ updateHelper();
 
 const flavorDialog=document.querySelector('#flavor-dialog'),flavorSelect=document.querySelector('#flavor-size');
 function updateFlavorLink(){
-  const size=flavorSelect.value;document.querySelector('#flavor-dialog-price').textContent=money(priceFor(activeFlavor,size));setOrderLink(document.querySelector('#flavor-messenger'),buildOrderMessage(activeFlavor,size));
+  const size=flavorSelect.value;document.querySelector('#flavor-servings').textContent=servingsFor(size);document.querySelector('#flavor-dialog-price').textContent=money(priceFor(activeFlavor,size));setOrderLink(document.querySelector('#flavor-messenger'),buildOrderMessage(activeFlavor,size));
 }
 document.querySelectorAll('.flavor-open').forEach(button=>button.addEventListener('click',()=>{
   const card=button.closest('.flavor-card');activeFlavor=card.dataset.flavor;document.querySelector('#flavor-dialog-title').textContent=activeFlavor;
